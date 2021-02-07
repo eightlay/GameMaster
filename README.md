@@ -1,2 +1,2 @@
 # GameMaster
-App to handle multiple text role playing games
+App to administrate multiple text role playing games
