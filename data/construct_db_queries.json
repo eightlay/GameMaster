@@ -1,0 +1,4 @@
+{
+    "users": "CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY AUTOINCREMENT, active INT);",
+    "profiles": "CREATE TABLE IF NOT EXISTS profiles (uid INTEGER PRIMARY KEY, name TEXT, age INTEGER, status TEXT, bio TEXT, FOREIGN KEY (uid) REFERENCES users (uid));"
+}

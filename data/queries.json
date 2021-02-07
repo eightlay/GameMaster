@@ -1,0 +1,14 @@
+{
+    "add": {
+        "query": "INSERT INTO {table} ({fields}) VALUES ({values})",
+        "request": false
+    },
+    "find": {
+        "query": "SELECT * FROM {table} WHERE {fields} = {values}",
+        "request": true
+    },
+    "find_one": {
+        "query": "SELECT * FROM {table} WHERE {fields} = {values} ORDER BY ROWID ASC LIMIT 1",
+        "request": true
+    }
+}
