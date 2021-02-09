@@ -1,9 +1,9 @@
-from users import User
 import json
 import utils
 import sqlite3
 from typing import Any
 from users import Object
+from gm_formatter import formatter
 
 
 DEBUG = False
@@ -28,13 +28,10 @@ class Action:
         if len(self.data['fields']) == 0:
             return None
         content = self.data.copy()
-        content['fields'] = ', '.join(content['fields'])
-        content['values'] = ', '.join([
-            f"'{value}'" if type(value) == str else f"{value}"
-            for value in content['values']
-        ])
+        if self.name == 'upsert':
+            content['update'] = zip(content['fields'], content['values'])
         query, request = QUERIES[self.name].values()
-        query = query.format(**content)
+        query = formatter.format(query, **content)
         return query, self.name, request
 
 
