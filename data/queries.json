@@ -1,14 +1,18 @@
 {
-    "add": {
-        "query": "INSERT INTO {table} ({fields}) VALUES ({values})",
+    "insert": {
+        "query": "INSERT INTO {table} ({fields!f}) VALUES ({values!v})",
+        "request": false
+    },
+    "upsert": {
+        "query": "INSERT INTO {table} ({fields!f}) VALUES ({values!v}) ON CONFLICT(id) DO UPDATE SET {update!u}",
         "request": false
     },
     "find": {
-        "query": "SELECT * FROM {table} WHERE {fields} = {values}",
+        "query": "SELECT * FROM {table} WHERE {fields!f} = {values!v}",
         "request": true
     },
     "find_one": {
-        "query": "SELECT * FROM {table} WHERE {fields} = {values} ORDER BY ROWID ASC LIMIT 1",
+        "query": "SELECT * FROM {table} WHERE {fields!f} = {values!v} ORDER BY ROWID ASC LIMIT 1",
         "request": true
     }
 }
