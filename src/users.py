@@ -1,5 +1,5 @@
 from typing import Optional
-from gm_object import Object
+from db_object import Object
 
 
 class User(Object):

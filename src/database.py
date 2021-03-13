@@ -16,7 +16,7 @@ with open(utils.construct_path('queries.json'), "r") as file:
 
 class Action:
     """
-        Store the action on the object and build a querybased on this data
+        Store the action in the object and build a query based on this data
     """
 
     def __init__(self, name: str, obj: Object) -> None:
@@ -24,7 +24,9 @@ class Action:
         self.data = obj.get_data()
 
     def build_query(self) -> tuple:
-        """Build a query based on the provided data"""
+        """
+            Build a query based on the provided data
+        """
         if len(self.data['fields']) == 0:
             return None
         content = self.data.copy()
@@ -43,7 +45,9 @@ class Database:
         self.construct_db()
 
     def create_connection(self) -> sqlite3.Connection:
-        """Create a connection with the database"""
+        """
+            Create a connection with the database
+        """
         connection = None
         try:
             connection = sqlite3.connect(self.db_path)
@@ -57,7 +61,9 @@ class Database:
                       query: str,
                       query_name: str = "noname",
                       request=True) -> Any:
-        """Execute the query"""
+        """
+            Execute the query
+        """
         connection = self.create_connection()
         try:
             cursor = connection.cursor()
@@ -84,12 +90,17 @@ class Database:
             self.execute_query(query, query_name, False)
 
     def perform(self, action: Action) -> Any:
-        """Perform actions in the database"""
+        """
+            Perform actions in the database
+        """
         return self.execute_query(
             *action.build_query()
         )
 
     def find_one(self, obj: Object):
+        """
+            Find in databse the first object, that satisfy obj signature
+        """
         action = Action('find_one', obj)
         result = self.perform(action)
         if len(result) != 0:
@@ -98,6 +109,9 @@ class Database:
         return None
 
     def find(self, obj: Object):
+        """
+            Find in databse all objects, that satisfy obj signature
+        """
         action = Action('find', obj)
         result = self.perform(action)
         if len(result) != 0:

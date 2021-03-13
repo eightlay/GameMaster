@@ -1,4 +1,9 @@
-# Data
+# Temp
+utils-tg.py
+telegram-handler.py
+filters-tg.py
+
+# Private data
 *.sqlite
 settings.py
 

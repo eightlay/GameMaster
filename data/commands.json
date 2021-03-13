@@ -1,23 +1,23 @@
 {
     "entry_point": {
         "input": {
-            "id": "int positive"
+            "id": "int nonnegative"
         },
         "output": ["manage_profile"]
     },
     "manage_profile": {
         "input": {
-            "id": "int positive",
+            "id": "int nonnegative",
             "name": "str l1 u30",
             "age": "int positive",
-            "about": "str l0 u72",
-            "bio": "str l0 u512",
-            "prefs": "str l0 u128"
+            "about": "str u72",
+            "bio": "str u512",
+            "prefs": "str u128"
         },
         "output": ["switch_status", "manage_profile"]
     },
     "switch_status": {
-        "input": {"id": "int positive"},
+        "input": {"id": "int nonnegative"},
         "output": ["switch_status", "manage_profile"]
     }
 }
