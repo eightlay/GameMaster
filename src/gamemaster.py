@@ -122,6 +122,9 @@ class GameMaster:
         self.put_action('upsert', user)
 
 
+######################################
+#                TEST                #
+######################################
 id = 0
 gm = GameMaster()
 command = 'entry_point'

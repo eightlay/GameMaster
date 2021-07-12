@@ -1,7 +1,7 @@
 import json
 import utils
 import sqlite3
-from typing import Any
+from typing import Any, List
 from users import Object
 from gm_formatter import formatter
 
@@ -97,7 +97,7 @@ class Database:
             *action.build_query()
         )
 
-    def find_one(self, obj: Object):
+    def find_one(self, obj: Object) -> Object:
         """
             Find in databse the first object, that satisfy obj signature
         """
@@ -108,7 +108,7 @@ class Database:
             return constr(*result[0])
         return None
 
-    def find(self, obj: Object):
+    def find(self, obj: Object) -> List[Object]:
         """
             Find in databse all objects, that satisfy obj signature
         """

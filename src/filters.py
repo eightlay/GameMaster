@@ -1,4 +1,5 @@
 def checkConstraints(context: dict, constraints: dict) -> bool:
+    """Check if all passed constraints satisfies on context"""
     for key, consts in constraints.items():
         val = context[key]
 

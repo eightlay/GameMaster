@@ -1,4 +1,6 @@
 class Object:
+    """Object to work with any database object"""
+
     table = ''
 
     def __init__(self) -> None:

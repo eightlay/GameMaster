@@ -1,7 +1,7 @@
 import os
 import json
 
-def construct_path(file) -> str:
+def construct_path(file: str) -> str:
     """Return path to file"""
     path = os.getcwd()
     path = os.path.abspath(path)
@@ -10,7 +10,7 @@ def construct_path(file) -> str:
     return path
 
 
-def load_json(file_name) -> dict:
+def load_json(file_name: str) -> dict:
     """Return read json file"""
     data = None
     path = construct_path(file_name)

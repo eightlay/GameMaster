@@ -2,12 +2,12 @@ from string import Formatter
 
 
 class ExtendedFormatter(Formatter):
-    """An extended format string formatter
-
-    Formatter with extended conversion symbol
+    """
+        An extended format string formatter
+        Formatter with extended conversion symbol
     """
 
-    def convert_field(self, value, conversion):
+    def convert_field(self, value: str, conversion: str) -> str:
         """ Extend conversion symbol
         Following additional symbol has been added
         * f: convert list of fields to string for query
